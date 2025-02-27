@@ -28,22 +28,36 @@ kotlin {
             //koin
             implementation("io.insert-koin:koin-android:4.0.1")
             implementation("io.insert-koin:koin-androidx-compose:4.0.1")
+            //ktor
+            implementation(libs.ktor.client.android)
+            implementation(libs.io.insert.koin.koin.android) // ✅ Koin para Android
 
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha11")
+            implementation("org.jetbrains.compose.material:material-icons-extended:1.5.0")
+
             //iconos
             implementation("org.jetbrains.compose.material:material-icons-extended:1.5.0")
             //selecciona fichero
             //https://github.com/vinceglb/FileKit
             implementation("io.github.vinceglb:filekit-core:0.8.8")
+
+            //adaptativo
+            implementation("org.jetbrains.compose.material3.adaptive:adaptive:1.0.0-alpha03")
+            implementation("org.jetbrains.compose.material3.adaptive:adaptive-layout:1.0.0-alpha03")
+            implementation("org.jetbrains.compose.material3.adaptive:adaptive-navigation:1.0.0-alpha03")
+            implementation(compose.material3AdaptiveNavigationSuite)
+            implementation("org.jetbrains.compose.material3:material3-window-size-class:1.7.3")
+            implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
 
             // Enables FileKit with Composable utilities
             implementation("io.github.vinceglb:filekit-compose:0.8.8")
@@ -55,10 +69,23 @@ kotlin {
             runtimeOnly(libs.insert.koin.koin.compose.viewmodel)
             implementation(libs.insert.koin.koin.compose.viewmodel)
 
+            implementation("io.ktor:ktor-serialization-gson:3.1.0")
+            implementation("com.google.code.gson:gson:2.12.1")
+            implementation("io.ktor:ktor-client-content-negotiation:3.1.0")
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.content.negotiation)
+           // implementation(libs.ktor.serialization.kotlinx.json)
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.okhttp)
+            implementation("org.jetbrains.skiko:skiko:0.8.15")
+            implementation("org.slf4j:slf4j-api:2.0.9") // Example SLF4J version
+            implementation("ch.qos.logback:logback-classic:1.4.11") // Logback implementation
+
         }
     }
 }

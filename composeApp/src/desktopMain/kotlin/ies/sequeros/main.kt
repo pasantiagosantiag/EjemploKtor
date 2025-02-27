@@ -10,7 +10,7 @@ fun main() = application {
         title = "EjemploKtor",
     ) {
         KoinApplication(application = {
-
+            modules(appModule)
 
         }) {
             App()
